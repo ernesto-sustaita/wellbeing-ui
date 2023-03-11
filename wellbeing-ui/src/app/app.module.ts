@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { StartComponent } from './start.component';
+import { MeditationComponent } from './meditation/meditation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartComponent
+    StartComponent,
+    MeditationComponent
   ],
   imports: [
     BrowserModule,

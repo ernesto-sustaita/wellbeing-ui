@@ -7,11 +7,13 @@
       <button mat-icon-button (click)="menu.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Wellbeing</span>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end">
-        <a routerLink="#">Home</a>
-        <a routerLink="#">Meditation</a>
-        <a routerLink="#">Concentrate</a>
+      <span id="appName">Wellbeing</span>
+      <div id="menuContainer">
+        <ul id="menuLinks">
+          <li class="menuItem"><a routerLink="/">Home</a></li>
+          <li class="menuItem"><a routerLink="/meditate">Meditation</a></li>
+          <li class="menuItem"><a routerLink="#">Concentrate</a></li>
+        </ul>
       </div>
     </mat-toolbar>
     <main>

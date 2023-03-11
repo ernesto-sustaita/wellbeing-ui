@@ -1,0 +1,71 @@
+
+#stopwatch {
+    font-family: 'Orbitron', sans-serif;
+    color: #66ff99;
+    font-size: 56px;
+    text-align: center;
+}
+
+#stopwatch-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #e7eafb;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: #202020;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #202020;
+    cursor: pointer;
+}
+
+#setTimePanel {
+    margin: 10px;
+}
+
+#pauseButton, #distractedButton, #summaryPanel, #notifications {
+    display: none;
+}
+
+#totalTime, #totalDistractions{
+    font-weight: bold;
+}
+
+.clock {
+    margin: 0px auto;
+    width: 250px;
+    height: 250px;
+    fill: black
+}
+.outer-circle,
+.center-circle {
+    fill: DarkSlateGray;
+}
+
+.seconds {
+    transform-origin: center;
+    stroke-linecap: round;
+}
+
+.seconds {
+    stroke: white;
+}
+
+.line {
+    stroke-width: 1px;
+    stroke: white;
+    stroke-linecap: round;
+    transform-origin: center;
+}

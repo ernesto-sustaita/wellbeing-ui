@@ -8,9 +8,29 @@ mat-sidenav {
 
 a {
     text-decoration: none;
-    color: rgb(0, 155, 90);
+    color: white;
 }
 
 a:hover, a:active {
-    color: rgb(0, 184, 107);
+    color: rgb(155, 155, 155);
+}
+
+#appName {
+    margin-left: 10px;
+}
+
+#menuContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#menuLinks {
+    display: flex;
+    flex-direction: row;
+}
+
+.menuItem {
+    list-style-type: none;
+    padding: 5px;
 }
