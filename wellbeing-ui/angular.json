@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "wellbeing-ui"
+  "defaultProject": "wellbeing-ui",
+  "cli": {
+    "analytics": false
+  }
 }
