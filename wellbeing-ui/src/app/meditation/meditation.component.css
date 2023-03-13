@@ -4,6 +4,7 @@
     color: #66ff99;
     font-size: 56px;
     text-align: center;
+    margin: 30px 0;
 }
 
 #stopwatch-container {
@@ -15,8 +16,8 @@
 }
 
 button {
-    width: 100px;
-    height: 30px;
+    width: 50px;
+    height: 40px;
     background-color: #202020;
     color: white;
     border-radius: 6px;
@@ -33,6 +34,13 @@ button:hover {
 
 #setTimePanel {
     margin: 10px;
+    font-size: 23px;
+}
+
+#setTimePanel > input {
+    width: 100px;
+    text-align: center;
+    font-size: 23px;
 }
 
 #pauseButton, #distractedButton, #summaryPanel, #notifications {

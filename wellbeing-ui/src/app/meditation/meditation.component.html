@@ -18,9 +18,11 @@
         <div>Total time: <span id="totalTime"></span></div>
         <div>Distractions: <span id="totalDistractions"></span></div>
     </div>
-    <button onclick="start(true)" id="startButton">Start</button>
+    <button mat-icon-button>
+        <mat-icon>play_circle</mat-icon>
+    </button>
+    
     <button onclick="pause()" id="pauseButton">Pause</button>
-    <!--<button onclick="reset()">Reset</button>-->
     <button onclick="distracted()" id="distractedButton">Distracted</button>
     <audio id="bell">
         <source src="sound/tibetan-bell-sound/tibetan-bell-sound-8s.ogg">
