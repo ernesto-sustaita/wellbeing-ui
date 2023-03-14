@@ -12,4 +12,9 @@ export class MeditationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  playBell() {
+    const audio = new Audio('assets/sound/tibetan-bell-sound-8s.mp3');
+    audio.play();
+  }
+
 }
