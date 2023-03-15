@@ -11,6 +11,8 @@ export class MeditationComponent implements OnInit {
 
   distractions = 0;
   isDistractedButtonVisible = false;
+  seconds = 60;
+  minutes = 0;
 
   ngOnInit(): void {
   }
@@ -19,6 +21,10 @@ export class MeditationComponent implements OnInit {
     const audio = new Audio('assets/sound/tibetan-bell-sound-8s.mp3');
     audio.play();
     this.isDistractedButtonVisible = true;
+  }
+
+  updateTime(value: string){
+    this.minutes = parseInt(value);
   }
 
 }

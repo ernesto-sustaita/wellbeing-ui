@@ -11,12 +11,12 @@
       </div>            
     <div id="stopwatch">00:00</div>
     <div id="setTimePanel">
-        Meditation time: <input type="number" id="setTime"/> minutes
+        Meditation time: <input type="number" #setTime (change)="updateTime(setTime.value)"/> minutes {{minutes}}
     </div>
     <div id="notifications"></div>
     <div id="summaryPanel">
         <div>Total time: <span id="totalTime"></span></div>
-        <div>Distractions: <span id="totalDistractions"></span></div>
+        <div>Distractions: {{distractions}}</div>
     </div>
     <button mat-icon-button (click)="playBell()">
         <mat-icon>play_circle</mat-icon>
