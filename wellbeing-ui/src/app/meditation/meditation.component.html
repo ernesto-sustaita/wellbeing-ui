@@ -23,5 +23,7 @@
     </button>
     
     <button onclick="pause()" id="pauseButton">Pause</button>
-    <button onclick="distracted()" id="distractedButton">Distracted</button>
+    <button *ngIf="this.isDistractedButtonVisible" (click)="distractions = distractions + 1">
+        <mat-icon>add_circle</mat-icon>
+    </button>
 </div>
