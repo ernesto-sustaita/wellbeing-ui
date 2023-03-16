@@ -11,7 +11,7 @@
       </div>            
     <div id="stopwatch">00:00</div>
     <div id="setTimePanel">
-        Meditation time: <input type="number" #setTime (change)="updateTime(setTime.value)"/> minutes {{minutes}}
+        Meditation time: <input type="number" #setTime min="0" (change)="updateTime(setTime.value)"/> minutes
     </div>
     <div id="notifications"></div>
     <div id="summaryPanel">
@@ -23,7 +23,7 @@
     </button>
     
     <button onclick="pause()" id="pauseButton">Pause</button>
-    <button *ngIf="this.isDistractedButtonVisible" (click)="distractions = distractions + 1">
+    <button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
         <mat-icon>add_circle</mat-icon>
     </button>
 </div>

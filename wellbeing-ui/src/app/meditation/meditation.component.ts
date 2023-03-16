@@ -27,4 +27,8 @@ export class MeditationComponent implements OnInit {
     this.minutes = parseInt(value);
   }
 
+  addDistraction(){
+    this.distractions += 1;
+  }
+
 }
