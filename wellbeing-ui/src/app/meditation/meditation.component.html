@@ -9,16 +9,16 @@
           <line x1="60" y1="5" x2="60" y2="10" class="line" />
         </svg>
       </div>            
-    <div id="stopwatch">00:00</div>
-    <div id="setTimePanel">
+    <div *ngIf="this.isStopWatchVisible">{{minutesDisplay}}:{{secondsDisplay}}</div>
+    <div id="setTimePanel" *ngIf="this.isSetTimePanelVisible">
         Meditation time: <input type="number" #setTime min="0" (change)="updateTime(setTime.value)"/> minutes
     </div>
     <div id="notifications"></div>
-    <div id="summaryPanel">
-        <div>Total time: <span id="totalTime"></span></div>
+    <div *ngIf="this.isSummaryPanelVisible">
+        <div>Total time: {{totalTime}}</div>
         <div>Distractions: {{distractions}}</div>
     </div>
-    <button mat-icon-button (click)="playBell()">
+    <button mat-icon-button (click)="startMeditation(true)">
         <mat-icon>play_circle</mat-icon>
     </button>
     
