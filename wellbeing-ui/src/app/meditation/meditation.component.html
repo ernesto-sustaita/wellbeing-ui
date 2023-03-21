@@ -4,7 +4,7 @@
         <svg class="circle" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <circle cx="60" cy="60" r="60" class="outer-circle"/>
           <circle cx="60" cy="60" r="57" />
-          <line x1="60" y1="0" x2="60" y2="60" class="seconds" />
+          <line x1="60" y1="0" x2="60" y2="60" class="seconds" #secondsLine/>
           <circle cx="60" cy="60" r="3" class="center-circle" />
           <line x1="60" y1="5" x2="60" y2="10" class="line" />
         </svg>
@@ -18,12 +18,12 @@
         <div>Total time: {{totalTime}}</div>
         <div>Distractions: {{distractions}}</div>
     </div>
-    <button mat-icon-button (click)="startMeditation(true)">
+    <button mat-icon-button  *ngIf="this.isStartButtonVisible" (click)="startMeditation(true)">
         <mat-icon>play_circle</mat-icon>
     </button>
     
     <button onclick="pause()" id="pauseButton">Pause</button>
-    <button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
+    <button mat-icon-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
         <mat-icon>add_circle</mat-icon>
     </button>
 </div>

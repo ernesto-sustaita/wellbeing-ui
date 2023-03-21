@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-meditation',
@@ -9,7 +9,10 @@ export class MeditationComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild('secondsLine') secondsLine!: ElementRef;
+
   distractions = 0;
+  isStartButtonVisible = true;
   isDistractedButtonVisible = false;
   isSummaryPanelVisible = false;
   isStopWatchVisible = false;
@@ -19,6 +22,9 @@ export class MeditationComponent implements OnInit {
   seconds = 60;
   minutes = 0;
   totalTime = 0;
+  minutesToSeconds = 0;
+  degreesForSecond = 0;
+  degreesAccumulator = 0;
 
   ngOnInit(): void {
   }
@@ -31,10 +37,14 @@ export class MeditationComponent implements OnInit {
   startMeditation(starting: boolean){
 
     if(starting) {
+      this.isStartButtonVisible = false;
       this.isDistractedButtonVisible = true;
       this.isStopWatchVisible = true;
       this.isSetTimePanelVisible = false;
       this.totalTime = this.minutes;
+      this.minutesToSeconds = this.minutes * 60;
+      this.degreesForSecond = 360 / this.minutesToSeconds;
+      this.degreesAccumulator = this.degreesForSecond;
       this.minutes--;
       this.playBell();
     }
@@ -57,8 +67,8 @@ export class MeditationComponent implements OnInit {
         this.minutesDisplay = this.minutes.toString();
       }
 
-      //document.querySelector(".seconds").style.transform = `rotate(${degreesAccumulator}deg)`;
-      //degreesAccumulator+=degreesForSecond;
+      this.secondsLine.nativeElement.style.transform = 'rotate(' + this.degreesAccumulator + 'deg)';
+      this.degreesAccumulator += this.degreesForSecond;
 
       //bellPlay = 0;
 
@@ -72,6 +82,10 @@ export class MeditationComponent implements OnInit {
 
           this.playBell();
           this.isSummaryPanelVisible = true;
+          this.isDistractedButtonVisible = false;
+          this.isStopWatchVisible = false;
+          this.isSetTimePanelVisible = true;
+          this.isStartButtonVisible = true;
           
           //let intervalId = setInterval(playBell, 8000);
 
