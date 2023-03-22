@@ -16,7 +16,6 @@ export class MeditationComponent implements OnInit {
   isDistractedButtonVisible = false;
   isSummaryPanelVisible = false;
   isStopWatchVisible = false;
-  isSetTimePanelVisible = true;
   secondsDisplay = '';
   minutesDisplay = '';
   seconds = 60;
@@ -40,7 +39,6 @@ export class MeditationComponent implements OnInit {
       this.isStartButtonVisible = false;
       this.isDistractedButtonVisible = true;
       this.isStopWatchVisible = true;
-      this.isSetTimePanelVisible = false;
       this.totalTime = this.minutes;
       this.minutesToSeconds = this.minutes * 60;
       this.degreesForSecond = 360 / this.minutesToSeconds;
@@ -84,7 +82,6 @@ export class MeditationComponent implements OnInit {
           this.isSummaryPanelVisible = true;
           this.isDistractedButtonVisible = false;
           this.isStopWatchVisible = false;
-          this.isSetTimePanelVisible = true;
           this.isStartButtonVisible = true;
           
           //let intervalId = setInterval(playBell, 8000);
@@ -103,10 +100,6 @@ export class MeditationComponent implements OnInit {
 
       this.startMeditation(false);
     }, 1000);
-  }
-
-  updateTime(value: string){
-    this.minutes = parseInt(value);
   }
 
   addDistraction(){

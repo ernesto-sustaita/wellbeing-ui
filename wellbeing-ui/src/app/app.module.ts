@@ -8,13 +8,15 @@ import { MaterialModule } from './material.module';
 import { StartComponent } from './start.component';
 import { MeditationComponent } from './meditation/meditation.component';
 import { ConcentrateComponent } from './concentrate/concentrate.component';
+import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation-time.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     MeditationComponent,
-    ConcentrateComponent
+    ConcentrateComponent,
+    SetMeditationTimeComponent
   ],
   imports: [
     BrowserModule,

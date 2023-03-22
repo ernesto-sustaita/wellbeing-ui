@@ -10,17 +10,11 @@
         </svg>
       </div>            
     <div *ngIf="this.isStopWatchVisible">{{minutesDisplay}}:{{secondsDisplay}}</div>
-    <div id="setTimePanel" *ngIf="this.isSetTimePanelVisible">
-        Meditation time: <input type="number" #setTime min="0" (change)="updateTime(setTime.value)"/> minutes
-    </div>
     <div id="notifications"></div>
     <div *ngIf="this.isSummaryPanelVisible">
         <div>Total time: {{totalTime}}</div>
         <div>Distractions: {{distractions}}</div>
     </div>
-    <button mat-icon-button  *ngIf="this.isStartButtonVisible" (click)="startMeditation(true)">
-        <mat-icon>play_circle</mat-icon>
-    </button>
     
     <button onclick="pause()" id="pauseButton">Pause</button>
     <button mat-icon-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
