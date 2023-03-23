@@ -21,7 +21,6 @@ export class MeditationComponent implements OnInit {
   @ViewChild('secondsLine') secondsLine!: ElementRef;
 
   distractions = 0;
-  isStartButtonVisible = true;
   isDistractedButtonVisible = false;
   isSummaryPanelVisible = false;
   isStopWatchVisible = false;
@@ -80,7 +79,6 @@ export class MeditationComponent implements OnInit {
           this.isSummaryPanelVisible = true;
           this.isDistractedButtonVisible = false;
           this.isStopWatchVisible = false;
-          this.isStartButtonVisible = true;
 
           clearTimeout(timeoutId);
 
