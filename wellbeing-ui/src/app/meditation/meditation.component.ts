@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-meditation',
@@ -7,7 +8,15 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class MeditationComponent implements OnInit {
 
-  constructor() { }
+  constructor( private activatedroute: ActivatedRoute, private router: Router ) {
+    this.activatedroute.params.subscribe(data => {
+      this.minutes = data.minutes;
+    });
+
+    if(this.minutes <= 0)
+      this.router.navigate(['/set-meditation-time']);
+  }
+  
 
   @ViewChild('secondsLine') secondsLine!: ElementRef;
 
@@ -26,6 +35,15 @@ export class MeditationComponent implements OnInit {
   degreesAccumulator = 0;
 
   ngOnInit(): void {
+    this.isDistractedButtonVisible = true;
+    this.isStopWatchVisible = true;
+    this.totalTime = this.minutes;
+    this.minutesToSeconds = this.minutes * 60;
+    this.degreesForSecond = 360 / this.minutesToSeconds;
+    this.degreesAccumulator = this.degreesForSecond;
+    this.minutes--;
+    this.playBell();
+    this.startMeditation();
   }
 
   playBell() {
@@ -33,19 +51,7 @@ export class MeditationComponent implements OnInit {
     audio.play();
   }
 
-  startMeditation(starting: boolean){
-
-    if(starting) {
-      this.isStartButtonVisible = false;
-      this.isDistractedButtonVisible = true;
-      this.isStopWatchVisible = true;
-      this.totalTime = this.minutes;
-      this.minutesToSeconds = this.minutes * 60;
-      this.degreesForSecond = 360 / this.minutesToSeconds;
-      this.degreesAccumulator = this.degreesForSecond;
-      this.minutes--;
-      this.playBell();
-    }
+  startMeditation(){
 
     let timeoutId = setTimeout(() => {
       this.seconds--;
@@ -72,33 +78,18 @@ export class MeditationComponent implements OnInit {
 
       if(this.minutes == 0 && this.seconds == 0)
       {
-          //pause();
-          //document.getElementById('bell').play();
-          //document.getElementById("totalTime").innerHTML = document.getElementById('setTime').value;
-          //document.getElementById("totalDistractions").innerHTML = distractions;
-          //document.getElementById("summaryPanel").style.display = 'block';
-
           this.playBell();
           this.isSummaryPanelVisible = true;
           this.isDistractedButtonVisible = false;
           this.isStopWatchVisible = false;
           this.isStartButtonVisible = true;
-          
-          //let intervalId = setInterval(playBell, 8000);
-
-          //function playBell(){
-          //    document.getElementById('bell').play();
-          //    bellPlay++;
-          //    if(bellPlay==2)
-          //        clearInterval(intervalId);
-          //}
 
           clearTimeout(timeoutId);
 
           return;
       }
 
-      this.startMeditation(false);
+      this.startMeditation();
     }, 1000);
   }
 

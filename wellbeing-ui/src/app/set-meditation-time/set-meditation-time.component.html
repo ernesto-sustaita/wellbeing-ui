@@ -24,9 +24,8 @@
         <span> minutes</span>
     </div>
     <div id="start-button-container">
-        <button mat-icon-button class="start-meditation-button" *ngIf="this.isStartButtonVisible"><!--(click)="startMeditation(true)">-->
+        <button mat-icon-button class="start-meditation-button" *ngIf="this.isStartButtonVisible" [routerLink]="['/meditate', minutes]">
             <mat-icon>play_circle</mat-icon> Start meditation
         </button>
     </div>
-    <!--<input type="number" #setTime min="0" (change)="updateTime(setTime.value)"/> minutes -->
 </div>

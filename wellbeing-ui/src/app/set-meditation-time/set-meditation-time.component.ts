@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-set-meditation-time',
@@ -6,8 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./set-meditation-time.component.css']
 })
 export class SetMeditationTimeComponent {
+  
   minutes = 0;
   isStartButtonVisible = false;
+
+  constructor (private router: Router) {}
+
+  route() {
+    this.router.navigate(['/meditate', this.minutes]);
+  }
 
   updateTime(value: number, operation: string){
     switch(operation){
@@ -22,7 +30,6 @@ export class SetMeditationTimeComponent {
         this.minutes = value;
     }
 
-    if(this.minutes > 0)
-      this.isStartButtonVisible = true;
+    this.isStartButtonVisible = (this.minutes > 0);
   }
 }
