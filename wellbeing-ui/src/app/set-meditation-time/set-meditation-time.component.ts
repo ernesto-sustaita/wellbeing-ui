@@ -10,6 +10,7 @@ export class SetMeditationTimeComponent {
   
   minutes = 0;
   isStartButtonVisible = false;
+  timeUnit = 'minutes';
 
   constructor (private router: Router) {}
 
@@ -29,6 +30,11 @@ export class SetMeditationTimeComponent {
       default:
         this.minutes = value;
     }
+
+    if(this.minutes == 1)
+      this.timeUnit = 'minute ';
+    else
+      this.timeUnit = 'minutes';
 
     this.isStartButtonVisible = (this.minutes > 0);
   }

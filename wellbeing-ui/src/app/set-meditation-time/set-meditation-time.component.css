@@ -6,16 +6,14 @@
     text-align: center;
 }
 
-#preset-buttons-container {
-    margin: 5px 80px 5px 0;
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
 }
 
-#minutes-buttons-container {
-    margin: 5px 0;
-}
-
-#start-button-container {
-    margin: 15px 80px 5px 0;
+#minutes-input-container {
+    align-items: center;
 }
 
 button {
@@ -28,6 +26,13 @@ button {
     margin-left: 5px;
     margin-right: 5px;
     font-size: 30px;
+}
+
+.space {
+    width: 70px;
+    height: 45px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 button:hover {
@@ -49,4 +54,10 @@ button.start-meditation-button {
     font-size: 25px;
     width: 65px;
     text-align: center;
+}
+
+span{
+    font-size: xx-large;
+    padding-left: 10px;
+    width: 150px;
 }

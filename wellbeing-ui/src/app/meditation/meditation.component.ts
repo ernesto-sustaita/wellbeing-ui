@@ -74,8 +74,6 @@ export class MeditationComponent implements OnInit {
       this.secondsLine.nativeElement.style.transform = 'rotate(' + this.degreesAccumulator + 'deg)';
       this.degreesAccumulator += this.degreesForSecond;
 
-      //bellPlay = 0;
-
       if(this.minutes == 0 && this.seconds == 0)
       {
           this.playBell();

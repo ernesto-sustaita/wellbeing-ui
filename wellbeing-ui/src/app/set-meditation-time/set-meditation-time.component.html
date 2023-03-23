@@ -1,29 +1,31 @@
 <div id="set-time-panel">
     <h1>Set meditation time: </h1>
-    <div id="preset-buttons-container">
+    <div class="buttons-container">
         <button (click)="updateTime(5,'')">5</button> 
         <button (click)="updateTime(10,'')">10</button> 
         <button (click)="updateTime(15,'')">15</button> 
         <button (click)="updateTime(30,'')">30</button> 
         <button (click)="updateTime(60,'')">60</button>
     </div>
-    <div id="minutes-buttons-container">
+    <div class="buttons-container">
         <button mat-icon-button (click)="updateTime(5,'-')">
             <mat-icon>remove</mat-icon> 5
         </button>
         <button mat-icon-button (click)="updateTime(1,'-')">
             <mat-icon>remove</mat-icon>
         </button>
-        <input type="text" disabled="disabled" id="minutes-input" value="{{minutes}}"/>
+        <div class="space"></div>
         <button mat-icon-button (click)="updateTime(1,'+')">
             <mat-icon>add</mat-icon>
         </button>
         <button mat-icon-button (click)="updateTime(5,'+')">
             <mat-icon>add</mat-icon> 5
         </button>
-        <span> minutes</span>
     </div>
-    <div id="start-button-container">
+    <div id="minutes-input-container" class="buttons-container">
+        <input type="text" disabled="disabled" id="minutes-input" value="{{minutes}}"/> <span>{{timeUnit}}</span>
+    </div>
+    <div id="buttons-container">
         <button mat-icon-button class="start-meditation-button" *ngIf="this.isStartButtonVisible" [routerLink]="['/meditate', minutes]">
             <mat-icon>play_circle</mat-icon> Start meditation
         </button>
