@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SnackBarDistractionComponent } from '../snack-bar-distraction/snack-bar-distraction.component';
+import { MeditationSummaryComponentComponent } from '../meditation-summary-component/meditation-summary-component.component';
 
 @Component({
   selector: 'app-meditation',
@@ -8,7 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MeditationComponent implements OnInit {
 
-  constructor( private activatedroute: ActivatedRoute, private router: Router ) {
+  constructor( private activatedroute: ActivatedRoute, 
+    private router: Router, 
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog ) {
     this.activatedroute.params.subscribe(data => {
       this.minutes = data.minutes;
     });
@@ -91,6 +98,22 @@ export class MeditationComponent implements OnInit {
 
   addDistraction(){
     this.distractions += 1;
+    this.openDistractionSnackBar();
   }
+
+  openDistractionSnackBar() {
+    this.snackBar.openFromComponent(SnackBarDistractionComponent, {
+      duration: 8 * 1000,
+    });
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(MeditationSummaryComponentComponent, dialogConfig);
+}
 
 }

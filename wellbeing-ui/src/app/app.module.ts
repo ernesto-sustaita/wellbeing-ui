@@ -9,6 +9,10 @@ import { StartComponent } from './start.component';
 import { MeditationComponent } from './meditation/meditation.component';
 import { ConcentrateComponent } from './concentrate/concentrate.component';
 import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation-time.component';
+import { SnackBarDistractionComponent } from './snack-bar-distraction/snack-bar-distraction.component';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MeditationSummaryComponentComponent } from './meditation-summary-component/meditation-summary-component.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,16 @@ import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation
     StartComponent,
     MeditationComponent,
     ConcentrateComponent,
-    SetMeditationTimeComponent
+    SetMeditationTimeComponent,
+    SnackBarDistractionComponent,
+    MeditationSummaryComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

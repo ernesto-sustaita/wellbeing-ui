@@ -9,15 +9,17 @@
           <line x1="60" y1="5" x2="60" y2="10" class="line" />
         </svg>
       </div>            
-    <div>{{minutesDisplay}}:{{secondsDisplay}}</div>
+    <div id="stopwatch">{{minutesDisplay}}:{{secondsDisplay}}</div>
     <div id="notifications"></div>
     <div *ngIf="this.isSummaryPanelVisible">
         <div>Total time: {{totalTime}}</div>
         <div>Distractions: {{distractions}}</div>
     </div>
     
-    <button onclick="pause()" id="pauseButton">Pause</button>
-    <button mat-icon-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
-        <mat-icon>add_circle</mat-icon>
-    </button>
+    <div class="buttons-container">
+      <button onclick="pause()" id="pauseButton">Pause</button>
+      <button mat-icon-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
+          <mat-icon>add_circle</mat-icon> Distraction
+      </button>
+    </div>
 </div>
