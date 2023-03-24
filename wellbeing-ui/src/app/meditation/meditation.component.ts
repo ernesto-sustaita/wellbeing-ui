@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SnackBarDistractionComponent } from '../snack-bar-distraction/snack-bar-distraction.component';
-import { MeditationSummaryComponentComponent } from '../meditation-summary-component/meditation-summary-component.component';
+import { MeditationSummaryComponent } from '../meditation-summary/meditation-summary.component';
 
 @Component({
   selector: 'app-meditation',
@@ -89,6 +89,8 @@ export class MeditationComponent implements OnInit {
 
           clearTimeout(timeoutId);
 
+          this.openDialog();
+
           return;
       }
 
@@ -113,7 +115,12 @@ export class MeditationComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    this.dialog.open(MeditationSummaryComponentComponent, dialogConfig);
-}
+    dialogConfig.data = {
+      minutes: this.totalTime,
+      distractions: this.distractions
+    };
+
+    this.dialog.open(MeditationSummaryComponent, dialogConfig);
+  }
 
 }

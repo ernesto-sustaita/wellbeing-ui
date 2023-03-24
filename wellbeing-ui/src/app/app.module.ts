@@ -12,7 +12,8 @@ import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation
 import { SnackBarDistractionComponent } from './snack-bar-distraction/snack-bar-distraction.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MeditationSummaryComponentComponent } from './meditation-summary-component/meditation-summary-component.component';
+import { MeditationSummaryComponent } from './meditation-summary/meditation-summary.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,15 @@ import { MeditationSummaryComponentComponent } from './meditation-summary-compon
     ConcentrateComponent,
     SetMeditationTimeComponent,
     SnackBarDistractionComponent,
-    MeditationSummaryComponentComponent,
+    MeditationSummaryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

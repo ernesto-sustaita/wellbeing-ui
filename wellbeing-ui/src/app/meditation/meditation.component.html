@@ -11,10 +11,6 @@
       </div>            
     <div id="stopwatch">{{minutesDisplay}}:{{secondsDisplay}}</div>
     <div id="notifications"></div>
-    <div *ngIf="this.isSummaryPanelVisible">
-        <div>Total time: {{totalTime}}</div>
-        <div>Distractions: {{distractions}}</div>
-    </div>
     
     <div class="buttons-container">
       <button onclick="pause()" id="pauseButton">Pause</button>

@@ -1,0 +1,11 @@
+<div>
+    <h1>Congratulations ! <i class="material-icons">celebration</i></h1>
+    <p><i class="material-icons">timer</i><span>Total time:</span> {{minutes}} {{timeUnit}}</p>
+    <p><i class="material-icons">do_not_disturb_on</i><span>Distractions:</span> {{distractions}}</p>
+    <p id="quote">
+        <q>The only bad meditation session is the one you didn't do!</q>
+    </p>
+    <button mat-icon-button (click)="closeSummary()">
+        <mat-icon>close</mat-icon> Close
+    </button>
+</div>
