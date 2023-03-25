@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SnackBarDistractionComponent } from '../snack-bar-distraction/snack-bar-distraction.component';
 import { MeditationSummaryComponent } from '../meditation-summary/meditation-summary.component';
+import { Activity } from '../models/activity';
+import { ActivityService } from '../services/activity.service';
 
 @Component({
   selector: 'app-meditation',
@@ -15,7 +17,8 @@ export class MeditationComponent implements OnInit {
   constructor( private activatedroute: ActivatedRoute, 
     private router: Router, 
     private snackBar: MatSnackBar,
-    private dialog: MatDialog ) {
+    private dialog: MatDialog,
+    private activityService: ActivityService ) {
     this.activatedroute.params.subscribe(data => {
       this.minutes = data.minutes;
     });
@@ -41,6 +44,7 @@ export class MeditationComponent implements OnInit {
   minutesToSeconds = 0;
   degreesForSecond = 0;
   degreesAccumulator = 0;
+  activity = new Activity();
 
   ngOnInit(): void {
     this.isDistractedButtonVisible = true;
@@ -90,6 +94,18 @@ export class MeditationComponent implements OnInit {
           this.isRestartButtonVisible = true;
           this.isHomeButtonVisible = true;
           this.isNewMeditationButtonVisible = true;
+
+          this.activity.distractions = this.distractions;
+          this.activity.duration = this.totalTime;
+          this.activity.type = 1;
+          this.activity.userId = 1;
+          this.activity.createdDate = new Date().toISOString();
+          this.activity.id = 0,
+
+          this.activityService.addActivity(this.activity)
+            .subscribe(data => {
+              console.log(data);
+            });
 
           clearTimeout(timeoutId);
 

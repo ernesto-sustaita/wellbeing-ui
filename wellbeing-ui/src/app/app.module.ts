@@ -10,6 +10,7 @@ import { MeditationComponent } from './meditation/meditation.component';
 import { ConcentrateComponent } from './concentrate/concentrate.component';
 import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation-time.component';
 import { SnackBarDistractionComponent } from './snack-bar-distraction/snack-bar-distraction.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MeditationSummaryComponent } from './meditation-summary/meditation-summary.component';
 
@@ -27,7 +28,8 @@ import { MeditationSummaryComponent } from './meditation-summary/meditation-summ
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
