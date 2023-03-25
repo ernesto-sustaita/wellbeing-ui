@@ -14,8 +14,18 @@
     
     <div class="buttons-container">
       <button onclick="pause()" id="pauseButton">Pause</button>
-      <button mat-icon-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()">
-          <mat-icon>add_circle</mat-icon> Distraction
+      <button mat-icon-button mat-raised-button *ngIf="this.isDistractedButtonVisible" (click)="addDistraction()" matTooltip="Click if you were distracted"
+        aria-label="Click if you were distracted">
+          <mat-icon>add_circle</mat-icon>
       </button>
+      <button mat-icon-button [routerLink]="['/']" *ngIf="this.isHomeButtonVisible" matTooltip="Home">
+        <mat-icon>home</mat-icon> 
+      </button>
+      <button mat-icon-button [routerLink]="['/set-meditation-time']" *ngIf="this.isNewMeditationButtonVisible" matTooltip="New meditation">
+        <mat-icon>edit_square</mat-icon> 
+      </button>
+      <button mat-icon-button *ngIf="this.isRestartButtonVisible" (click)="restartMeditation()" matTooltip="Restart the meditation with the same settings">
+        <mat-icon>replay</mat-icon>
+    </button>
     </div>
 </div>

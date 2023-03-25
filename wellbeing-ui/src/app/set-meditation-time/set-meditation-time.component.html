@@ -26,8 +26,8 @@
         <input type="text" disabled="disabled" id="minutes-input" value="{{minutes}}"/> <span>{{timeUnit}}</span>
     </div>
     <div id="buttons-container">
-        <button mat-icon-button class="start-meditation-button" *ngIf="this.isStartButtonVisible" [routerLink]="['/meditate', minutes]">
-            <mat-icon>play_circle</mat-icon> Start meditation
+        <button mat-icon-button matTooltip="Start meditation" *ngIf="this.isStartButtonVisible" [routerLink]="['/meditate', minutes]">
+            <mat-icon>play_circle</mat-icon>
         </button>
     </div>
 </div>

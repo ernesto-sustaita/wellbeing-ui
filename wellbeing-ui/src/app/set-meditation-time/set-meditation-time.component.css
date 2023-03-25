@@ -41,11 +41,6 @@ button:hover {
     cursor: pointer;
 }
 
-button.start-meditation-button {
-    width: 340px;
-    font-size: 35px;
-}
-
 #minutes-input {
     height: 40px;
     vertical-align: top;

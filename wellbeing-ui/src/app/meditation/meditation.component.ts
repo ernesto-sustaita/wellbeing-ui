@@ -29,7 +29,9 @@ export class MeditationComponent implements OnInit {
 
   distractions = 0;
   isDistractedButtonVisible = false;
-  isSummaryPanelVisible = false;
+  isRestartButtonVisible = false;
+  isHomeButtonVisible = false;
+  isNewMeditationButtonVisible = false;
   isStopWatchVisible = false;
   secondsDisplay = '';
   minutesDisplay = '';
@@ -83,9 +85,11 @@ export class MeditationComponent implements OnInit {
       if(this.minutes == 0 && this.seconds == 0)
       {
           this.playBell();
-          this.isSummaryPanelVisible = true;
           this.isDistractedButtonVisible = false;
           this.isStopWatchVisible = false;
+          this.isRestartButtonVisible = true;
+          this.isHomeButtonVisible = true;
+          this.isNewMeditationButtonVisible = true;
 
           clearTimeout(timeoutId);
 
@@ -121,6 +125,16 @@ export class MeditationComponent implements OnInit {
     };
 
     this.dialog.open(MeditationSummaryComponent, dialogConfig);
+  }
+
+  restartMeditation(){
+    this.isRestartButtonVisible = false;
+    this.isHomeButtonVisible = false;
+    this.isNewMeditationButtonVisible = false;
+    this.seconds = 60;
+    this.distractions = 0;
+    this.minutes = this.totalTime;
+    this.ngOnInit();
   }
 
 }

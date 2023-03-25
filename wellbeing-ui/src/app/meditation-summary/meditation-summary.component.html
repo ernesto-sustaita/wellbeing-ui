@@ -5,7 +5,12 @@
     <p id="quote">
         <q>The only bad meditation session is the one you didn't do!</q>
     </p>
-    <button mat-icon-button (click)="closeSummary()">
-        <mat-icon>close</mat-icon> Close
-    </button>
+    <div class="buttons-container">
+        <button mat-icon-button (click)="closeSummary()" [routerLink]="['/']">
+            <mat-icon>home</mat-icon> 
+        </button>
+        <button mat-icon-button (click)="closeSummary()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
 </div>

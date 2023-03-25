@@ -11,9 +11,7 @@ import { ConcentrateComponent } from './concentrate/concentrate.component';
 import { SetMeditationTimeComponent } from './set-meditation-time/set-meditation-time.component';
 import { SnackBarDistractionComponent } from './snack-bar-distraction/snack-bar-distraction.component';
 
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MeditationSummaryComponent } from './meditation-summary/meditation-summary.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,9 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    MatSnackBarModule,
-    MatDialogModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

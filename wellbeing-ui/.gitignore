@@ -21,6 +21,7 @@ chrome-profiler-events*.json
 *.launch
 .settings/
 *.sublime-workspace
+.angular
 
 # IDE - VSCode
 .vscode/*
@@ -43,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+*.pack
+/angular-webpack
