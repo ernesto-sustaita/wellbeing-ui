@@ -88,30 +88,29 @@ export class MeditationComponent implements OnInit {
 
       if(this.minutes == 0 && this.seconds == 0)
       {
-          this.playBell();
-          this.isDistractedButtonVisible = false;
-          this.isStopWatchVisible = false;
-          this.isRestartButtonVisible = true;
-          this.isHomeButtonVisible = true;
-          this.isNewMeditationButtonVisible = true;
+        clearTimeout(timeoutId);
+        this.playBell();
+        this.isDistractedButtonVisible = false;
+        this.isStopWatchVisible = false;
+        this.isRestartButtonVisible = true;
+        this.isHomeButtonVisible = true;
+        this.isNewMeditationButtonVisible = true;
 
-          this.activity.distractions = this.distractions;
-          this.activity.duration = this.totalTime;
-          this.activity.type = 1;
-          this.activity.userId = 1;
-          this.activity.createdDate = new Date().toISOString();
-          this.activity.id = 0,
+        this.activity.distractions = this.distractions;
+        this.activity.duration = this.totalTime;
+        this.activity.type = 1;
+        this.activity.userId = 1;
+        this.activity.createdDate = new Date().toISOString();
+        this.activity.id = 0,
 
-          this.activityService.addActivity(this.activity)
-            .subscribe(data => {
-              console.log(data);
-            });
+        this.activityService.addActivity(this.activity)
+          .subscribe(data => {
+            console.log(data);
+          });
 
-          clearTimeout(timeoutId);
+        this.openDialog();
 
-          this.openDialog();
-
-          return;
+        return;
       }
 
       this.startMeditation();

@@ -21,6 +21,10 @@ export class ActivityService {
     const body=JSON.stringify(activity);
     console.log(body)
     return this.http.post(this.baseURL + 'Activity', body,{'headers':headers})
+    // .pipe(
+    //   catchError((err) => {
+    //     console.error(err);
+    //     throw err;
+    //   }));
   }
- 
 }
