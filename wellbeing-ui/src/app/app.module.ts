@@ -13,6 +13,7 @@ import { SnackBarDistractionComponent } from './snack-bar-distraction/snack-bar-
 import { HttpClientModule } from '@angular/common/http';
 
 import { MeditationSummaryComponent } from './meditation-summary/meditation-summary.component';
+import { SurveyComponent } from './survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MeditationSummaryComponent } from './meditation-summary/meditation-summ
     SetMeditationTimeComponent,
     SnackBarDistractionComponent,
     MeditationSummaryComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,

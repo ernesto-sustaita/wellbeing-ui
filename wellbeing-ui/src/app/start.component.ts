@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
 export class StartComponent implements OnInit {
     
     ngOnInit(): void {
-        let month = 4;//this.dateObject.getMonth();
+        let month = this.dateObject.getMonth();
         let year = this.dateObject.getFullYear();
         this.currentMonth = this.monthNames[month];
         this.daysInMonth = this.getDaysInMonth(year,month);
