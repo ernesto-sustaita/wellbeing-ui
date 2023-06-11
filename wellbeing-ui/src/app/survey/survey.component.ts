@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent {
-  name: string = '';
+  name: string = 'How do you feel?';
 }
