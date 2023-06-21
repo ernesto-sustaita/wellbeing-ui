@@ -1,3 +1,19 @@
 <h1>{{currentMonth}}</h1>
 <p>{{daysInMonth}}</p>
 <p>{{monthStartsWith}}</p>
+<table>
+  <tr>
+    <th>S</th>
+    <th>M</th>
+    <th>T</th>
+    <th>W</th>
+    <th>T</th>
+    <th>F</th>
+    <th>S</th>
+  </tr>
+  <tr *ngFor="let week of calendarArray">
+    <td *ngFor="let day of week">
+      <span *ngIf="day != '-1'">{{day}}</span>
+    </td>
+  </tr>
+</table>
