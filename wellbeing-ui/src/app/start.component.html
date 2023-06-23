@@ -13,7 +13,9 @@
   </tr>
   <tr *ngFor="let week of calendarArray">
     <td *ngFor="let day of week">
-      <span *ngIf="day != '-1'">{{day}}</span>
+      <ng-template [ngIf]="day.dayNumber != ''">
+        <div [ngClass]="day.meditationSession ? 'meditaded': 'notMeditaded'">{{day.dayNumber}}</div>
+      </ng-template>
     </td>
   </tr>
 </table>
