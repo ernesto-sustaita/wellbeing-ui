@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MeditationSummaryComponent } from './meditation-summary/meditation-summary.component';
 import { SurveyComponent } from './survey/survey.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SurveyComponent } from './survey/survey.component';
     SnackBarDistractionComponent,
     MeditationSummaryComponent,
     SurveyComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

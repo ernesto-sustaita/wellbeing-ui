@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>S</th>
+    <th>M</th>
+    <th>T</th>
+    <th>W</th>
+    <th>T</th>
+    <th>F</th>
+    <th>S</th>
+  </tr>
+  <tr *ngFor="let week of calendarArray">
+    <td *ngFor="let day of week">
+      <ng-template [ngIf]="day.dayNumber != ''">
+        <div [ngClass]="day.meditationSession ? 'meditaded': 'notMeditaded'">{{day.dayNumber}}</div>
+      </ng-template>
+    </td>
+  </tr>
+</table>
