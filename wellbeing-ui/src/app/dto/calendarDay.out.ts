@@ -1,4 +1,4 @@
 export class CalendarDay {
   dayNumber: string = '';
-  meditationSession: boolean = false;
+  totalMeditationTime: number = 0;
 }

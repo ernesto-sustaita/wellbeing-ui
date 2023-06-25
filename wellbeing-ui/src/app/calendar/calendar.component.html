@@ -11,7 +11,8 @@
   <tr *ngFor="let week of calendarArray">
     <td *ngFor="let day of week">
       <ng-template [ngIf]="day.dayNumber != ''">
-        <div [ngClass]="day.meditationSession ? 'meditaded': 'notMeditaded'">{{day.dayNumber}}</div>
+        <div [ngClass]="day.totalMeditationTime > 0 ? 'meditaded': 'notMeditaded'"
+          matTooltip="{{day.totalMeditationTime}}">{{day.dayNumber}}</div>
       </ng-template>
     </td>
   </tr>

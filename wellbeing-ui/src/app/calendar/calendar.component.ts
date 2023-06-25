@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Activity } from '../models/activity';
 import { CalendarDay } from "../dto/calendarDay.out";
 import { ActivityService } from '../services/activity.service';
+import { DailyMeditationTime } from '../dto/dailyMeditationTime.out';
 
 @Component({
   selector: 'app-calendar',
@@ -29,9 +30,8 @@ export class CalendarComponent implements OnInit {
     let firstDayOfMonth = this.year + '-' + formattedMonth + '-01';
     let lastDayOfMonth =  this.year + '-' + formattedMonth + '-' + this.daysInMonth;
 
-    this.activityService.getActivitiesByDate(firstDayOfMonth, lastDayOfMonth)
+    this.activityService.getDailyMeditationTimeByDateInterval(firstDayOfMonth, lastDayOfMonth)
         .subscribe(data => {
-          console.log(data);
           this.meditationData = data;
           this.calendarArray = this.createCalendarArray();
         });
@@ -46,7 +46,7 @@ export class CalendarComponent implements OnInit {
   monthStartsWith: number = 0;
   calendarRows: number = 0;
   calendarArray: any;
-  meditationData: Activity[];
+  meditationData: DailyMeditationTime[];
 
   getDaysInMonth (year: number, month: number) {
       return new Date(year, month+1, 0).getDate();
@@ -71,15 +71,14 @@ export class CalendarComponent implements OnInit {
           let dayNumber = ++currentDay;
           let formattedDayNumber = dayNumber < 10 ? '0' + dayNumber : dayNumber;
           let formattedMonthNumber = (this.month + 1) < 10 ? '0' + (this.month + 1) : this.month + 1;
-          let hasMeditationSessions = this.meditationData.find(
-            item => item.createdDate.includes(this.year + '-' + formattedMonthNumber + '-' + formattedDayNumber));
+          let meditationSessions = this.meditationData.find(
+            item => item.date.includes(this.year + '-' + formattedMonthNumber + '-' + formattedDayNumber));
 
-          if(hasMeditationSessions !== undefined) {
+          if(meditationSessions !== undefined) {
             calendarDayInfo.dayNumber = dayNumber.toString();
-            calendarDayInfo.meditationSession = true;
+            calendarDayInfo.totalMeditationTime = meditationSessions.totalTime;
           } else {
             calendarDayInfo.dayNumber = dayNumber.toString();
-            calendarDayInfo.meditationSession = false;
           }
 
           weekArray.push(calendarDayInfo);

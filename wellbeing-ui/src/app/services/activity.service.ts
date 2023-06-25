@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Activity } from '../models/activity';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DailyMeditationTime } from '../dto/dailyMeditationTime.out';
 
 @Injectable({providedIn:'root'})
 export class ActivityService {
@@ -19,6 +20,11 @@ export class ActivityService {
   getActivitiesByDate(startDate: string, endDate: string): Observable<Activity[]> {
     console.log('getActivities '+this.baseURL + 'Activity/' + startDate + '/' + endDate)
     return this.http.get<Activity[]>(this.baseURL + 'Activity/' + startDate + '/' + endDate)
+  }
+
+  getDailyMeditationTimeByDateInterval(startDate: string, endDate: string): Observable<DailyMeditationTime[]> {
+    console.log('getActivities '+this.baseURL + 'Activity/' + startDate + '/' + endDate)
+    return this.http.get<DailyMeditationTime[]>(this.baseURL + 'Activity/meditation/time/' + startDate + '/' + endDate)
   }
 
   addActivity(activity:Activity): Observable<any> {
