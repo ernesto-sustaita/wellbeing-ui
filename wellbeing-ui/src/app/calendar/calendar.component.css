@@ -1,3 +1,23 @@
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, tr {
+  height: 50px;
+}
+
+th {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+td {
+  cursor: pointer;
+}
+
 .meditaded {
   color: black;
   background-color: white;

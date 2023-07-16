@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Activity } from '../models/activity';
 import { CalendarDay } from "../dto/calendarDay.out";
 import { ActivityService } from '../services/activity.service';
 import { DailyMeditationTime } from '../dto/dailyMeditationTime.out';
