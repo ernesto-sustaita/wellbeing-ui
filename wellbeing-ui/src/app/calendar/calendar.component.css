@@ -5,6 +5,11 @@ table {
   text-align: center;
 }
 
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
 th, tr {
   height: 50px;
 }
