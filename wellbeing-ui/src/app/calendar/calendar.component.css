@@ -5,6 +5,10 @@ table {
   text-align: center;
 }
 
+table, tr, td, th {
+  padding: 0;
+}
+
 h2 {
   width: 100%;
   text-align: center;
@@ -21,6 +25,18 @@ th {
 
 td {
   cursor: pointer;
+}
+
+.streak {
+  height: 5px;width: 100%;
+}
+
+.meditationStreakBackground {
+  background-color: #5ccb5f;
+}
+
+.pomodoroStreakBackground {
+  background-color: #98ff96;
 }
 
 .meditaded {
